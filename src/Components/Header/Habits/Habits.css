@@ -1,4 +1,21 @@
+@media screen and (min-width: 500px)
+{
 .Habits{
     display: grid;
     grid-template-columns:4fr 1fr;
 }
+
+.Habits-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+}
+
+}
+
+.img-Hasan{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
