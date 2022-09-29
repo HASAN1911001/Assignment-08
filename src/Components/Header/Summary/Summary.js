@@ -8,7 +8,13 @@ const Summary = (props) => {
         {
             total = total + click.time;  
         }
-    let value = "0 Hour";
+    
+    let alu;
+    const handle = (time) =>{
+        
+        alu = time;
+      }
+    let value = alu;
     return(
         <div>
             <div className="my-info">
@@ -25,7 +31,7 @@ const Summary = (props) => {
                     </div>
                     <div className="add-a-break">
                         <h1>Add a Break</h1>
-                        <button onClick={() => } className='btn-break'>
+                        <button onClick={() => handle("0.35 H") } className='btn-break'>
                             <p>0.25 H</p>
                          </button>
                          <button className='btn-break'>
@@ -41,6 +47,7 @@ const Summary = (props) => {
                             <p>2 H</p>
                          </button>
                     </div>
+
                     <div className="total-time">
                         <h1>Total Time:</h1>
                         <h3>Activity Time: {total} Hours </h3>
