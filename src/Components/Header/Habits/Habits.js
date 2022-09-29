@@ -5,7 +5,7 @@ import './Habits.css';
 
 const Habits = () => {
     const [habits, setHabits] = useState([]);
-    const [time, timeSet] = useState([]);
+    const [clicked, setClicked] = useState([]);
 
     useEffect( () => {
         fetch('Habits.json')
@@ -14,7 +14,9 @@ const Habits = () => {
     }, [])
 
     const handleClick = (habits) =>{
-        timeSet(habits);
+        
+        const selected = [...clicked, habits];
+        setClicked(selected);
     }
 
     return(
@@ -30,7 +32,7 @@ const Habits = () => {
             </div>
             <div className="habit-summary">
                 <Summary
-                    time={time}
+                    clicked={clicked}
                 ></Summary>
             </div>
         </div>   

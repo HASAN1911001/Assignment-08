@@ -1,9 +1,14 @@
 import React from 'react';
 
-let activity_time = 0;
+
 const Summary = (props) => {
-        activity_time += props.time;
-        console.log(activity_time);
+    const {clicked} = props;
+    let total = 0;
+    for(const click of clicked)
+        {
+            total = total + click.time;  
+        }
+    let value = "0 Hour";
     return(
         <div>
             <div className="my-info">
@@ -20,7 +25,7 @@ const Summary = (props) => {
                     </div>
                     <div className="add-a-break">
                         <h1>Add a Break</h1>
-                        <button className='btn-break'>
+                        <button onClick={() => } className='btn-break'>
                             <p>0.25 H</p>
                          </button>
                          <button className='btn-break'>
@@ -37,9 +42,9 @@ const Summary = (props) => {
                          </button>
                     </div>
                     <div className="total-time">
-                        <h1>Total Time:{activity_time}</h1>
-                        <h3>Activity Time</h3>
-                        <h3>Break Time</h3>
+                        <h1>Total Time:</h1>
+                        <h3>Activity Time: {total} Hours </h3>
+                        <h3>Break Time: {value}</h3>
                     </div>
                 </div>
         </div>
