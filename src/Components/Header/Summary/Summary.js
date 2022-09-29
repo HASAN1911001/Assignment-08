@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState } from "react";
 
 
 const Summary = (props) => {
@@ -8,13 +8,13 @@ const Summary = (props) => {
         {
             total = total + click.time;  
         }
+
+    const [time, setTime] = useState([]);
     
-    let alu;
-    const handle = (time) =>{
-        
-        alu = time;
+    const handle = (t) =>{
+        setTime(t);
       }
-    let value = alu;
+   
     return(
         <div>
             <div className="my-info">
@@ -31,27 +31,27 @@ const Summary = (props) => {
                     </div>
                     <div className="add-a-break">
                         <h1>Add a Break</h1>
-                        <button onClick={() => handle("0.35 H") } className='btn-break'>
-                            <p>0.25 H</p>
+                        <button onClick={() => handle("15 minutes") } className='btn-break'>
+                            <p>15 minutes</p>
                          </button>
-                         <button className='btn-break'>
-                            <p>0.5 H</p>
+                         <button onClick={() => handle("30 minutes") } className='btn-break'>
+                            <p>30 minutes</p>
                          </button>
-                         <button className='btn-break'>
-                            <p>0.75 H</p>
+                         <button onClick={() => handle("45 minutes") } className='btn-break'>
+                            <p>45 minutes</p>
                          </button>
-                         <button className='btn-break'>
-                            <p>1 H</p>
+                         <button onClick={() => handle("1 Hour") } className='btn-break'>
+                            <p>1 Hour</p>
                          </button>
-                         <button className='btn-break'>
-                            <p>2 H</p>
+                         <button onClick={() => handle("2 Hour") } className='btn-break'>
+                            <p>2 Hour</p>
                          </button>
                     </div>
 
                     <div className="total-time">
                         <h1>Total Time:</h1>
                         <h3>Activity Time: {total} Hours </h3>
-                        <h3>Break Time: {value}</h3>
+                        <h3>Break Time: {time}</h3>
                     </div>
                 </div>
         </div>
